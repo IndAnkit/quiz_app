@@ -177,5 +177,5 @@ This document provides details for the available API endpoints in the **Quiz App
     "incorrectAnswer": 5
   }
 }
-``
+```
 

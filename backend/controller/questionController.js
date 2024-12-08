@@ -13,7 +13,8 @@ exports.submitAnswer = catchAsync(async (req, res) => {
       is_correct: true,
     },
   });
-  const is_correct = correctAnswers.every((ele) => answers[ele.choice_id]);
+  const correctAns=Object.keys(answers)
+  const is_correct = correctAnswers.length===correctAns.length && correctAnswers.every((ele) => answers[ele.choice_id]);
   await UserResponses.findOrCreate({
     where: {
       question_id,

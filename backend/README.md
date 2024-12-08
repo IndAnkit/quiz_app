@@ -1,3 +1,30 @@
+# Backend Setup
+Now, let's set up the backend.
+#### 1.Go to the Backend Directory:
+```bash
+cd backend
+```
+#### 2.Create a .env file:
+In the backend directory, create a .env file and add the following values (replace with your actual values):
+```text
+DB_HOST=your_database_host
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=your_database_name
+POST=your_port
+```
+
+#### 3.Install Dependencies:
+Install the required dependencies for the backend:
+```bash
+npm i
+```
+#### 4.Start the Server:
+Start the backend server in development mode:
+```bash
+npm run dev
+```
+
 # Quiz App API Documentation
 
 This document provides details for the available API endpoints in the **Quiz App**.

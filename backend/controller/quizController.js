@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const sequelize = require("../config");
 const Choice = require("../model/Choice");
 const Question = require("../model/Question");
@@ -5,19 +6,30 @@ const Quiz = require("../model/Quiz");
 const QuizQuestions = require("../model/QuizQuestions");
 const catchAsync = require("../utils/catchAsync");
 const { success } = require("../utils/responseHandler");
+const QuizUsers = require("../model/QuizUsers");
 
 exports.getQuiz = catchAsync(async (req, res) => {
   const userId = req.params.userId;
   try {
     // Step 1: Create a new quiz
     const quiz = await Quiz.create();
-
+    
     // Step 2: Select 5 random questions from the questions table
     const randomQuestions = await Question.findAll({
       order: sequelize.random(),
-      limit: 5,
+      limit: 4,
     });
-
+    const iamgeQuestions = await Question.findOne({
+      where:{
+        image_url:{
+          [Op.ne]: null  
+        }
+      },
+      order: sequelize.random(),
+      limit: 1,
+    });
+    randomQuestions.push(iamgeQuestions)
+    console.log("randomQuestions",iamgeQuestions)
     if (!randomQuestions.length) {
       return res.status(404).json({ message: "No questions found" });
     }
@@ -33,6 +45,10 @@ exports.getQuiz = catchAsync(async (req, res) => {
 
     // Bulk insert into quiz_questions table
     await QuizQuestions.bulkCreate(quizQuestions);
+    await QuizUsers.create({
+      user_id:userId,
+      quiz_id:quiz.quiz_id
+    })
 
     // Step 4: Fetch all selected questions and their choices
     const questionsWithChoices = await Promise.all(

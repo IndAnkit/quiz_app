@@ -1,0 +1,73 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+// Users table
+Table users {
+  user_id INT [pk, increment]
+  username VARCHAR
+  created_at TIMESTAMP
+}
+
+// Quizzes table
+Table quizzes {
+  quiz_id INT [pk, increment]
+  title VARCHAR
+  created_at TIMESTAMP
+  status ENUM('active', 'completed', 'inactive')
+}
+
+// Questions table
+Table questions {
+  question_id INT [pk, increment]
+  text TEXT
+  image_url VARCHAR [null]
+  question_type ENUM('single', 'multiple')
+  created_at TIMESTAMP
+}
+
+// Choices table
+Table choices {
+  choice_id INT [pk, increment]
+  question_id INT [ref:> questions.question_id]
+  text TEXT
+  is_correct BOOLEAN
+  created_at TIMESTAMP
+  
+ 
+}
+
+// Quiz_Questions table (Join table for many-to-many relation between Quizzes and Questions)
+Table quiz_questions {
+  quiz_questions_id int  [pk, increment]
+  quiz_id INT [ref: > quizzes.quiz_id]
+  question_id INT [ref:> questions.question_id]
+}
+
+Table quiz_users {
+  quiz_user_id int  [pk, increment]
+  quiz_id INT [ref:> users.user_id]
+  user_id INT [ref:> users.user_id]
+}
+
+// User_Responses table
+Table user_responses {
+  response_id INT [pk, increment]
+  user_id INT [ref: > users.user_id]
+  question_id INT [ref: > questions.question_id]
+  quiz_id INT [ref:> users.user_id]
+  selected_choices VARCHAR
+  isCorrect bool
+  time_taken INT
+  created_at TIMESTAMP
+
+}
+
+// Quiz_Results table
+Table quiz_results {
+  result_id INT [pk, increment]
+  quiz_user_id INT [ref:> quiz_users.quiz_user_id]
+  total_score INT
+  correct_answers INT
+  incorrect_answers INT
+  completed_at TIMESTAMP
+}

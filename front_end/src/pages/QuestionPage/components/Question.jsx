@@ -6,7 +6,7 @@ import Option from "./Option";
 
 const Question = () => {
   const dispatch = useDispatch();
-  const {  text,  image_url, options } = useQuestion();
+  const { text, image_url, options } = useQuestion();
   const currentSelectedAnswer = useCurrentAnswer();
 
   const onSelect = useCallback(
@@ -21,8 +21,12 @@ const Question = () => {
       <div className="font-extrabold text-2xl">{text}</div>
       {/* IMAGE IF AVALABEL */}
       {image_url && (
-        <div className="h-96">
-          <img src={image_url} alt={image_url} />
+        <div className="h-[150px] overflow-hidden">
+          <img
+            className="h-full w-full object-contain"
+            src={image_url}
+            alt={image_url}
+          />
         </div>
       )}
       {/* RENDER OPTIONS */}

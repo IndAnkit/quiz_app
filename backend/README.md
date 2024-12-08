@@ -82,7 +82,7 @@ This document provides details for the available API endpoints in the **Quiz App
 }
 ```
 
-### **3. Start Quiz**
+### **4. Start Quiz**
 - **Method:** `GET`
 - **Endpoint:** `/quiz/{id}`
 - **Description:** Starts the quiz for a user by quiz ID.

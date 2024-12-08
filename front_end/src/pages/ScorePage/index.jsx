@@ -19,13 +19,12 @@ const ScorePage = () => {
   return (
     <Layout>
       {scoreCard ? (
-        <>
+        <div className="flex flex-col justify-between h-full">
           <div className="flex flex-row  justify-center">
             <ReactSpeedometer
               minValue={0}
+              height={200}
               ringWidth={50}
-              width={300}
-              //   fluidWidth={'100%'}
               value={scoreCard.correctAnswer}
               maxValue={scoreCard.totalQuestions}
               currentValueText="Score"
@@ -63,7 +62,7 @@ const ScorePage = () => {
               ]}
             />
           </div>
-          <div className="flex flex-col gap-2 animate-pulse ">
+          <div className="flex flex-1 flex-col gap-2 animate-pulse ">
             <div className="flex text-gray-500 font-medium items-center gap-2 bg-blue-100 p-4 rounded-xl">
               <span className="w-3 h-3 rounded-full bg-blue-500"></span>
               <span className="w-5 font-semibold text-black">
@@ -87,7 +86,7 @@ const ScorePage = () => {
             </div>
           </div>
           <StartQuizButton className="mt-4" title="Start Again"  />
-        </>
+        </div>
       ) : (
         <Loader />
       )}

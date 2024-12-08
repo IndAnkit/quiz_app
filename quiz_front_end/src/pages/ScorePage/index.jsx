@@ -65,14 +65,14 @@ const ScorePage = () => {
         <div className="flex text-gray-500 font-medium items-center gap-2 bg-green-100 p-4 rounded-xl">
           <span className="w-3 h-3 rounded-full bg-green-500"></span>
           <span className="w-5 font-semibold text-black">
-            {scoreCard.totalQuestions}
+            {scoreCard.correctAnswer}
           </span>
           Correct
         </div>
         <div className="flex text-gray-500 font-medium items-center gap-2 bg-red-100 p-4 rounded-xl">
           <span className="w-3 h-3 rounded-full bg-red-500"></span>
           <span className="w-5 font-semibold text-black">
-            {scoreCard.totalQuestions}
+            {scoreCard.incorrectAnswer}
           </span>
           Incorrect
         </div>

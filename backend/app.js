@@ -31,7 +31,7 @@ app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/quiz", quizRoute);
 app.use("/api/v1/question", questionRoute);
 app.use("/api/v1/score", scoreRoute);
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "front_end","index.html"));
 });
 

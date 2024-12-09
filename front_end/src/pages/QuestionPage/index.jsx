@@ -31,9 +31,9 @@ const QuestionPage = () => {
       const handleBeforeUnload = (e) => {
           // Show the custom modal before refresh
           e.preventDefault();
-          // setIsModalOpen(true); // Show modal
           e.returnValue = ''; // Standard for modern browsers
-          // return '';
+          setIsModalOpen(true); // Show modal
+          return true;
       };
 
       // Add beforeunload event listener

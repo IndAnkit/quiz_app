@@ -33,7 +33,7 @@ const QuestionPage = () => {
           e.preventDefault();
           setIsModalOpen(true); // Show modal
           e.returnValue = ''; // Standard for modern browsers
-          return;
+          return '';
       };
 
       // Add beforeunload event listener

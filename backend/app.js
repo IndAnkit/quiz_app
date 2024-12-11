@@ -14,14 +14,14 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-// sequelize
-//   .sync({ force: false })
-//   .then(() => {
-//     console.log("Database synchronized");
-//   })
-//   .catch((err) => {
-//     console.error("Error syncing database:", err);
-//   });
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("Database synchronized");
+  })
+  .catch((err) => {
+    console.error("Error syncing database:", err);
+  });
 
 app.use(express.static("public"));
 

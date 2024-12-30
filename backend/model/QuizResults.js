@@ -11,7 +11,7 @@ const QuizResults = sequelize.define('QuizResults', {
   quiz_user_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'quiz_users',
+      model: 'quizdb_quiz_users',
       key: 'quiz_user_id',
     },
   },

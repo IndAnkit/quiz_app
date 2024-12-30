@@ -11,14 +11,14 @@ const QuizQuestions = sequelize.define('QuizQuestions', {
   quiz_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'quizzes',
+      model: 'quizdb_quizzes',
       key: 'quiz_id',
     },
   },
   question_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'questions',
+      model: 'quizdb_questions',
       key: 'question_id',
     },
   },

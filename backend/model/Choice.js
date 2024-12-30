@@ -11,7 +11,7 @@ const Choice = sequelize.define('Choice', {
   question_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'questions',
+      model: 'quizdb_questions',
       key: 'question_id',
     },
   },

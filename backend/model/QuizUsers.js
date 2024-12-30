@@ -23,7 +23,7 @@ const QuizUsers = sequelize.define('QuizUsers', {
     },
   },
 }, {
-  tableName: 'quiz_users',
+  tableName: 'quizdb_quiz_users',
   timestamps: false,
 });
 

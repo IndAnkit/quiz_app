@@ -25,7 +25,7 @@ const Question = sequelize.define('Question', {
     defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'questions',
+  tableName: 'quizdb_questions',
   timestamps: false,
 });
 

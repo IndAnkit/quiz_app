@@ -28,7 +28,7 @@ const Choice = sequelize.define('Choice', {
     defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'choices',
+  tableName: 'quizdb_choices',
   timestamps: false,
 });
 

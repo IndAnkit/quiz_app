@@ -20,7 +20,7 @@ const User = sequelize.define('User', {
     defaultValue: DataTypes.NOW, // Default to the current time
   },
 }, {
-  tableName: 'users', // The table name in the database
+  tableName: 'quizdb_users', // The table name in the database
   timestamps: false, // Disable automatic timestamp columns (createdAt/updatedAt)
 });
 

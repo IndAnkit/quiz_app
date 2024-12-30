@@ -32,7 +32,7 @@ const QuizResults = sequelize.define('QuizResults', {
     defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'quiz_results',
+  tableName: 'quizdb_results',
   timestamps: false,
 });
 

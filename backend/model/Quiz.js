@@ -23,7 +23,7 @@ const Quiz = sequelize.define('Quiz', {
     defaultValue: 'active',
   },
 }, {
-  tableName: 'quizzes',
+  tableName: 'quizdb_quizzes',
   timestamps: false,
 });
 

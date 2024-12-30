@@ -49,7 +49,7 @@ const UserResponses = sequelize.define(
     },
   },
   {
-    tableName: "user_responses",
+    tableName: "quizdb_user_responses",
     timestamps: false,
   }
 );
